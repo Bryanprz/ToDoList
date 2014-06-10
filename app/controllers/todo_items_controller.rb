@@ -5,6 +5,29 @@ class TodoItemsController < ApplicationController
   # GET /todo_items.json
   def index
     @todo_items = TodoItem.all
+  
+    
+    # Collect completed tasks
+    # block starts ============================
+    complete = []
+    @todo_items.each do |item|
+      if item[:complete] == true
+        complete << item 
+      end
+    end
+    # block ends ============================
+
+    @completed_items = complete.count
+    @all_items = @todo_items.count
+
+    # Define percentage of completed tasks
+    # block starts ============================
+    if @all_items > 0
+      percentage = (@completed_items).to_f/(@all_items).to_f * 100
+      @progress = "#{percentage}%"
+    end
+    # block ends ============================
+
   end
 
   # GET /todo_items/1

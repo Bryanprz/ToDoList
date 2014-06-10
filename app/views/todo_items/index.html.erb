@@ -1,4 +1,35 @@
-<h1>Listing todo_items</h1>
+<!-- Tabs with dropdowns start -->
+<ul class="nav nav-pills">
+  <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      Today's Tasks <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <a href="#">Completed tasks</a>
+      <a href="#">Uncompleted tasks</a>
+    </ul>
+  </li>
+</ul>
+<!-- Tabs with dropdowns end -->
+
+<ol class="breadcrumb">
+  <li><a href="#">All</a></li>
+  <li><a href="#">High Priority</a></li>
+  <li><a href="#">Low Priority</li></a>
+</ol>
+
+<h1>To Do List</h1>
+<h2>Progress is <%= @progress %></h2>
+
+<div class="progress progress-striped active">
+  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= @progress %>;">
+    <span class="sr-only"><%= @progress %></span>
+  </div>
+</div>
+
+<p>Number of completed items is <%= @completed_items %></p>
+<p>Number of all items is <%= @all_items %></p>
+
 
 <table>
   <thead>
@@ -13,7 +44,7 @@
 
   <tbody>
     <% @todo_items.each do |todo_item| %>
-      <tr>
+        <tr>
         <td><%= todo_item.task %></td>
         <td><%= todo_item.description %></td>
         <td><%= todo_item.complete %></td>
