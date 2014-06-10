@@ -28,7 +28,27 @@ class TodoItemsController < ApplicationController
     end
     # block ends ============================
 
+
+    # Define high priority items. Priority are items that are due today.
+
+    priority = []
+    @todo_items.each do |item|
+      today = Date.today.to_s
+      if item[:due].to_s == today
+        priority << item
+      end
+    end
+
+    if priority.length > 0
+      @high_priority = priority.each do |items|
+      items
+      end
+    end
+
   end
+  # Method ends ============================
+
+
 
   # GET /todo_items/1
   # GET /todo_items/1.json
@@ -38,6 +58,7 @@ class TodoItemsController < ApplicationController
   # GET /todo_items/new
   def new
     @todo_item = TodoItem.new
+
   end
 
   # GET /todo_items/1/edit
@@ -51,7 +72,7 @@ class TodoItemsController < ApplicationController
 
     respond_to do |format|
       if @todo_item.save
-        format.html { redirect_to @todo_item, notice: 'Todo item was successfully created.' }
+        format.html { redirect_to @todo_item, notice: 'Your new task was successfully created.' }
         format.json { render :show, status: :created, location: @todo_item }
       else
         format.html { render :new }

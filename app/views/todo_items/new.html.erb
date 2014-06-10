@@ -1,5 +1,30 @@
-<h1>New todo_item</h1>
+<!-- Tabs with dropdowns start -->
+<ul class="nav nav-pills">
+  <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      Today's Tasks <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <a href="#">Completed tasks</a>
+      <a href="#">Uncompleted tasks</a>
+    </ul>
+  </li>
+</ul>
+<!-- Tabs with dropdowns end -->
+
+<ol class="breadcrumb">
+  <li><a href="#">All</a></li>
+  <li><a href="#">High Priority</a></li>
+  <li><a href="#">Low Priority</li></a>
+</ol>
+
+<div class="container">
+
+<h1>Create A New Task</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Back', todo_items_path %>
+
+</div>
+
