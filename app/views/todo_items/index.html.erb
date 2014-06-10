@@ -28,6 +28,11 @@
   </div>
 </div>
 
+<blockquote>
+<p class="lead">Parkinson's Law: A task will swell in (perceived) importance and complexity in relation to the time allotted for its completion.</p>
+<footer class="pull-right">Tim Ferris in Four Hour Work Week</footer>
+</blockquote>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -59,9 +64,10 @@
 
 <%= link_to 'New Todo item', new_todo_item_path %>
 
-<h3>Summary</h3>
-<p>Number of completed items is <%= @completed_items %></p>
-<p>Number of all items is <%= @all_items %></p>
+<h3><small>Summary</small></h3>
+
+<p><small>You've completed <%= @completed_items %> items.</small></p>
+<p><small>Number of total tasks is <%= @all_items %>.</small></p>
 
 
 </div>
