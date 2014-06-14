@@ -40,9 +40,7 @@ class TodoItemsController < ApplicationController
     end
 
     if priority.length > 0
-      @high_priority = priority.each do |items|
-      items
-      end
+      @high_priority = priority.map(&:task)
     end
 
   end
@@ -72,7 +70,7 @@ class TodoItemsController < ApplicationController
 
     respond_to do |format|
       if @todo_item.save
-        format.html { redirect_to @todo_item, notice: 'Your new task was successfully created.' }
+        format.html { redirect_to :root, notice: 'Your new task was successfully created.' }
         format.json { render :show, status: :created, location: @todo_item }
       else
         format.html { render :new }

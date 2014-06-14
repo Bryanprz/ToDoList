@@ -1,23 +1,3 @@
-<!-- Tabs with dropdowns start -->
-<ul class="nav nav-pills">
-  <li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-      Today's Tasks <span class="caret"></span>
-    </a>
-    <ul class="dropdown-menu">
-      <a href="#">Completed tasks</a>
-      <a href="#">Uncompleted tasks</a>
-    </ul>
-  </li>
-</ul>
-<!-- Tabs with dropdowns end -->
-
-<ol class="breadcrumb">
-  <li><a href="#">All</a></li>
-  <li><a href="#">High Priority</a></li>
-  <li><a href="#">Low Priority</li></a>
-</ol>
-
 <div class="container">
 <h1>To Do List</h1>
 <h2>Progress is <%= @progress %></h2>
@@ -32,7 +12,14 @@
 <p class="lead">Parkinson's Law: A task will swell in (perceived) importance and complexity in relation to the time allotted for its completion.</p>
 <footer class="pull-right">Tim Ferris in Four Hour Work Week</footer>
 </blockquote>
-
+<br>
+<br>
+<p class="text-center">
+  <button type="button" class="btn btn-success btn-lg">
+    <%= link_to 'New Todo item', new_todo_item_path %>
+  </button>
+</p>
+<br>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -62,17 +49,13 @@
 
 <br>
 
-<p>
-  <button type="button" class="btn btn-success btn-md">
-    <%= link_to 'New Todo item', new_todo_item_path %>
-  </button>
-</p>
-
 <div class="text-center">
 <h3><small>Summary</small></h3>
 <p><small>You've completed <%= @completed_items %> items. Number of total tasks is <%= @all_items %>.</small></p>
-<p>Your tasks due today are <%= @high_priority %></p>
+<p>Your tasks due today are:<% @high_priority.each do |task| %>
+  <%= task %>, 
+  <% end %>
+</p>
 </div>
 
 </div>
-
