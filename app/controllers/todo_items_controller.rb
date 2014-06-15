@@ -39,9 +39,7 @@ class TodoItemsController < ApplicationController
       end
     end
 
-    if priority.length > 0
       @high_priority = priority.map(&:task)
-    end
 
   end
   # Method ends ============================
