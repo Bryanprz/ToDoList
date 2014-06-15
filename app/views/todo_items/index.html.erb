@@ -41,7 +41,7 @@
         <td><%= todo_item.due %></td>
         <td><%= link_to 'Show', todo_item %></td>
         <td><%= link_to 'Edit', edit_todo_item_path(todo_item) %></td>
-        <td><%= link_to 'Demolish', todo_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', todo_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -52,7 +52,7 @@
 <div class="text-center">
 <h3><small>Summary</small></h3>
 <p><small>You've completed <%= @completed_items %> items. Number of total tasks is <%= @all_items %>.</small></p>
-<p>Your tasks due today are:<% @high_priority.each do |task| %>
+<p>Your tasks due today are: <% @high_priority.each do |task| %>
   <%= task %>, 
   <% end %>
 </p>
