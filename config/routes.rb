@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
   root 'todo_items#index'
 
+  get 'today', to: 'todo_items#today'
+
+  get 'tomorrow', to: 'todo_items#tomorrow'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

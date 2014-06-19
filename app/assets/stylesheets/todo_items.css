@@ -12,7 +12,9 @@ html {
 }
 body {
   margin: 0;
+  padding-top: 65px;
 }
+
 article,
 aside,
 details,
@@ -3657,6 +3659,13 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     float: left;
   }
 }
+
+@media (max-width: 979px) {
+  body {
+    padding-top: 0px;
+  }
+}
+
 .navbar-collapse {
   max-height: 340px;
   padding-right: 15px;
@@ -4022,6 +4031,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-link:hover {
   color: #333;
 }
+
 .navbar-inverse {
   background-color: #222;
   border-color: #080808;

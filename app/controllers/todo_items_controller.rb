@@ -39,10 +39,30 @@ class TodoItemsController < ApplicationController
       end
     end
 
-      @high_priority = priority.map(&:task)
+      @todays_tasks = priority.map(&:task)
+
+
+      tomorrow_array = []
+      @todo_items.each do |item|
+      tomorrow = Date.tomorrow.to_s
+      if item[:due].to_s == tomorrow
+        tomorrow_array << item
+      end
+    end
+
+    @tomorrows_tasks = tomorrow_array.map(&:task)
 
   end
   # Method ends ============================
+
+  def today
+    @todays_tasks
+  end
+
+
+  def tomorrow
+   @tomorrows_tasks
+  end
 
 
 

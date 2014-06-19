@@ -1,0 +1,40 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<div class="container">
+<table class="table table-striped">
+  
+  <thead>
+    <tr>
+      <th>Task</th>
+      <th>Description</th>
+      <th>Complete</th>
+      <th>Due</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% unless @todays_tasks.nil? %>
+    <% @todays_tasks.each do |todo_item| %>
+        <tr>
+        <td><%= todo_item.task %></td>
+        <td><%= todo_item.description %></td>
+        <td><%= todo_item.complete %></td>
+        <td><%= todo_item.due %></td>
+        <td><%= link_to 'Show', todo_item %></td>
+        <td><%= link_to 'Edit', edit_todo_item_path(todo_item) %></td>
+        <td><%= link_to 'Delete', todo_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    <% else %>
+    <h2>No tasks due today.</h2>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+</body>
+</html>
